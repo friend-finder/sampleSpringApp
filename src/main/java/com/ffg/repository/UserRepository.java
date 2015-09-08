@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
-    public User findByEmail(String email);
+    public Iterable<User> findByLastName(String lastName);
     public Iterable<User> findByFirstNameAndLastName(String firstname, String lastName);
 }

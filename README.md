@@ -31,20 +31,26 @@ GET localhost:8080/sampleApp/v1/user/{id}
 
 Get user by e-mail
 
-GET localhost:8080/sampleApp/v1/user/email/{email}
-Warning: make sure that {email} is URL encoded
+GET localhost:8080/sampleApp/v1/user/lastName/{email}
+
 
 Get users by first name and last name
 
-GET localhost:8080/sampleApp/v1/user?firstName={firstName}&lastName={lastName}
+GET localhost:8080/sampleApp/v1/user/name?firstName={firstName}&lastName={lastName}
+
 
 Add a user
 
-POST local:8080/sampleApp/v1/user
+POST localhost:8080/sampleApp/v1/user
 
 Sample JSON:
 {
-    firstName: John,
-    lastName: Doe,
-    email: jdoe@vt.edu
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "jdoe@vt.edu"
 }
+
+
+Remove a user
+
+DELETE localhost:8080/sampleApp/v1/user/{id}

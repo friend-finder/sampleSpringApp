@@ -31,12 +31,12 @@ public class UserController {
         return new ResponseEntity<User>(userRepository.findOne(id), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/email/{email}")
-    public ResponseEntity<User> getUserByEmail(@PathVariable String email) {
-        return new ResponseEntity<User>(userRepository.findByEmail(email), HttpStatus.OK);
+    @RequestMapping(value = "/lastName/{lastName}", method = RequestMethod.GET)
+    public ResponseEntity<Iterable<User>> getUsersByLastName(@PathVariable String lastName) {
+        return new ResponseEntity<Iterable<User>>(userRepository.findByLastName(lastName), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(value = "/name", method = RequestMethod.GET)
     public ResponseEntity<Iterable<User>> getByName(@RequestParam(value = "firstName") String firstName,
                                           @RequestParam(value = "lastName") String lastName) {
         return new ResponseEntity<Iterable<User>>(userRepository.findByFirstNameAndLastName(firstName, lastName),
@@ -46,5 +46,11 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
     public ResponseEntity<User> addUser(@RequestBody User user) {
         return new ResponseEntity<User>(userRepository.save(user), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity removeUser(@PathVariable long id) {
+        userRepository.delete(id);
+        return new ResponseEntity(HttpStatus.OK);
     }
 }
