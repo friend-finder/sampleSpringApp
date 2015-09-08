@@ -6,7 +6,7 @@ import javax.persistence.*;
  * Created by connor on 9/8/15.
  */
 @Entity
-@Table(name = "User")
+@Table(name = "ffUser")
 public class User {
 
     @Id
@@ -17,6 +17,8 @@ public class User {
     private String firstName;
     @Column(name = "LastName")
     private String lastName;
+    @Column(name = "Email")
+    private String email;
 
     public long getId() {
         return id;
@@ -50,6 +52,4 @@ public class User {
         this.email = email;
     }
 
-    @Column(name = "Email")
-    private String email;
 }
