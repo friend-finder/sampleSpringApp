@@ -10,7 +10,8 @@ necessary tools to get this app up and running. So, run:
 sudo ./setup.sh
 
 This will set up the Java 8 SDK, IntelliJ, MySQL, and the sample database that the app will be using. After running this
-script successfully, make sure to change the password to the one you used when setting up the root of your MySQL.
+script successfully, make sure to change the password in "application.properties" in the resources folder to the one you
+used when setting up the root of your MySQL.
 
 Finally, open up the project in IntelliJ and run the app by right-clicking "Application" and clicking
 "Run 'Application.main()'". After running successfully, use DHC to send API calls to test out the application.
